@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Cases World Wide</title>
+</head>
+<script>
+    async function getCovidApi() {
+        const country = "India";
+        const data=await fetch('https://api.covid19api.com/summary');
+        // console.log(data);
+        const jsData = await data.json();
+        // console.log(jsData.Countries);
+        for(var i=0;i<jsData.Countries.length;i++){
+            if(jsData.Countries[i].Country===country){
+                console.log(`The name of the country is ${jsData.Countries[i].Country}. The total confirmed cases in the country are ${jsData.Countries[i].TotalConfirmed} and the total death cases are  ${jsData.Countries[i].TotalDeaths}`);
+                
+            }
+        }
+
+    }
+
+    getCovidApi();
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="covidstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>World Covid data </title>
+</head>
+<!-- <style>
+    body {
+        margin: 0;
+        font-family: monospace;
+        /* color: black; */
+        /* background-image: url(E://Sundar//notes//HTML//Corona.jpg);
+        background-repeat: no-repeat;
+        margin-left:80px; */
+        /* background-size: cover; */
+        /* height: 100%;
+        width: 100%; */
+        /* background-size: 100% 100%; */
+    }
+
+
+    .full {
+        /* margin: 500; */
+        /* background-image: url("https://visme.co/blog/wp-content/uploads/2020/03/Header-14.jpg"); */
+        background-image: url(E://Sundar//notes//HTML//Corona.jpg);
+        background-repeat: no-repeat;
+        /* margin-left: 80px; */
+        height: 550px;
+        /* width: 1400px; */
+        /* position: relative; */
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: rgba(215, 210, 216, 0.123);
+    }
+
+    .topnav a {
+        float: right;
+        color: black;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: rgba(38, 5, 44, 0.123);
+        /* color:; */
+    }
+
+    /* .btn {
+        float: left;
+        background-color: rgba(215, 210, 216, 0.123);
+        overflow: hidden;
+        border: none;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: rgba(44, 19, 5, 0.123);
+        color: black;
+    } */
+    .search-box {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 500px;
+        /* border: 1px solid black; */
+        padding: 0px 25px 10px 5px;
+        /* background-color: rgba(248, 215, 124, 0.486); */
+        /* bottom: 0px; */
+        position: absolute;
+        border-radius: 25px;
+        margin-left: 80px;
+        transition: margin-left .5s;
+    }
+
+    #submit {
+        position: absolute;
+        left: 30%;
+        transform: translate(-50%, -50%);
+    }
+
+    #mySidenav a {
+        position: absolute;
+        left: -95px;
+        transition: 0.3s;
+        padding: 15px;
+        width: 100px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        border-radius: 0 5px 5px 0;
+    }
+
+    #mySidenav a:hover {
+        left: 0;
+    }
+
+    #about {
+        top: 20px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #blog {
+        top: 80px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #projects {
+        top: 140px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #contact {
+        top: 200px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #end {
+        position: absolute;
+    }
+    .fa {
+        padding: 10px;
+        font-size: 15px;
+        width: 12px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+    }
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fa-google {
+        background: #dd4b39;
+        color: white;
+    }
+
+    .fa-linkedin {
+        background: #007bb5;
+        color: white;
+    }
+
+    .fa-skype {
+        background: #00aff0;
+        color: white;
+    }
+
+</style> -->
+<script src="coronajsquery.js"></script>
+<!-- <script>
+    async function getCovidApi() {
+        const country = document.forms["myForm"]["country"].value;
+        const data = await fetch('https://api.covid19api.com/summary');
+        // console.log(data);
+        const jsData = await data.json();
+        console.log(jsData.Countries);
+        var choice = 0;
+        for (var i = 0; i < jsData.Countries.length; i++) {
+            if (jsData.Countries[i].Country.toLowerCase() == country.toLowerCase()) {
+                choice = 1;
+                document.getElementById("result").innerHTML = `The name of the country is `
+                    + `<strong>${jsData.Countries[i].Country}</strong>. The total confirmed cases `
+                    + `in the country are <strong>${jsData.Countries[i].TotalConfirmed}</strong> `
+                    + `and the total death cases are <strong>${jsData.Countries[i].TotalDeaths}</strong>.`
+                    + `<br>The last updated date was <strong>${jsData.Countries[i].Date.slice(0, 10)}</strong>`;
+            }
+        }
+        if (choice == 0) {
+            document.getElementById("result").innerHTML = "<strong>Please try some other country!!!!</strong>";
+        }
+    }
+    function aboutPage() {
+        document.getElementById("whole").innerHTML = `This is a page where it delivers the current corona status of `
+            + `country that faced the deaths and active cases.`;
+    }
+    function openNav() {
+        document.getElementById("headers").style.marginLeft = "70px";
+        document.getElementById("headers").style.transition = "margin-left .3s";
+    }
+    function closeNav() {
+        document.getElementById("headers").style.marginLeft = "0px";
+        document.getElementById("headers").style.transition = "margin-left .3s";
+    }
+    function openNavForSearch() {
+        document.getElementById("search").style.marginLeft = "70px";
+        document.getElementById("search").style.transition = "margin-left .3s";
+    }
+    function closeNavForSearch() {
+        document.getElementById("search").style.marginLeft = "0px";
+        document.getElementById("search").style.transition = "margin-left .3s";
+    }
+</script> -->
+
+<body>
+    <div class="full">
+        <div class="topnav">
+            <a href="#home" onclick="document.location.reload(true)">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#about" onclick="aboutPage()">About</a>
+            <!-- <button class="btn"><i class="fa fa-bars"></i></button> -->
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="#" id="about">About</a>
+            <a href="#" id="blog">Blog</a>
+            <a href="#" id="projects" onmouseover="openNav()" onmouseout="closeNav()">Project</a>
+            <a href="#" id="contact" onmouseover="openNavForSearch()" onmouseout="closeNavForSearch()">Contact</a>
+        </div>
+        <div class="contentPage" id="myContentPage">
+            <h1 style="text-align: center;">Welcome to our page</h1>
+            <div class="container" id="whole" style="font-size: 20px;">
+                <div id="headers" class="description">
+                    <!-- <h1 style="text-align: center;">Welcome to our page</h1> -->
+                    <p style="font-size: 18px;">In this page, you can view the number of
+                        active corona cases and death cases in a list of countries you need to know about!!!</p>
+                </div>
+                <form name="myForm">
+                    <div class="search-box" id="search">
+                        <label><strong> Country name </strong></label>
+                        <input type="text" id="country" placeholder="Enter the Country name"
+                            style="width:200px;height:30px;" />
+                    </div>
+                    <br><br>
+                    <input id="submit" type="submit" style="width:75px;height:30px;" value="Submit"
+                        onclick="getCovidApi()">
+                    <br><br><br><br><br>
+                </form>
+                <div id="result" style="font-size: 18px;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="end" style="bottom:0; background-color: rgba(183, 171, 185, 0.507);">
+        <h3 style="padding: 13px 590px 0px 550px;">This is the end of the page</h3>
+        <div style="padding: 0px 625px 0px 625px;">
+            <a href="https://www.linkedin.com/in/sundararaman-k/" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-google"></a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!--
+    C:\Users\Sundararaman\Downloads\HTMLProject\celeb.html
+    header {
+        padding: 5px;
+        background-color: black;
+        text-align: center;
+        font-size: 20px;
+        color: gainsboro;
+        font-family: sans-serif;
+    }
+    section {
+        padding: 5px;
+        text-align: center;
+        font-size: 20px;
+        color: gainsboro;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        content: "";
+    }
+    footer {
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+     <header>
+        <h2>Welcome to our page</h2>
+    </header> 
+    <section>
+        <p  style="color: floralwhite;">
+            //In this page, you can view a short description about Celebrities you need to know about!!!
+        </p>
+    </section>
+    <footer>
+        <p>
+
+            <a href="http://www.instagram.com" target="_blank">
+                <img class="icon" src="E:\Sundar\notes\HTML\camera.jpg" width="40" height="40" alt="Instagram page"/>
+            </a> 
+        </p>
+    </footer>
+ <div class="top navbar" id="topnav" style="display: none; position: absolute; z-index: 3; right: 111px; height: 44px; background-color: rgb(95, 95, 95); text-align: center; padding-top: 0px;"> 
+       
+     </div>  
+-->

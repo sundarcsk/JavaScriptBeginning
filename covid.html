@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="covidstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>World Covid data </title>
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: monospace;
+        /* color: black; */
+        background-image: url(E://Sundar//notes//HTML//Corona.jpg);
+        background-repeat: no-repeat;
+        /* margin-left: 80px; */
+        height: 100%;
+    }
+
+    /* .contentPage {
+        margin: 500;
+        font-family: monospace;
+        background-image: url("E://Sundar//notes//HTML//Corona.jpg");
+        background-repeat: no-repeat;
+        margin-left: 80px;
+        height: 100%;
+    } */
+    .topnav {
+        overflow: hidden;
+        background-color: rgba(215, 210, 216, 0.123);
+    }
+
+    .topnav a {
+        float: right;
+        color: black;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: rgba(38, 5, 44, 0.123);
+        /* color:; */
+    }
+
+    /* .btn {
+        float: left;
+        background-color: rgba(215, 210, 216, 0.123);
+        overflow: hidden;
+        border: none;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: rgba(44, 19, 5, 0.123);
+        color: black;
+    } */
+    .search-box {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 500px;
+        /* border: 1px solid black; */
+        padding: 0px 25px 10px 5px;
+        /* background-color: rgba(248, 215, 124, 0.486); */
+        /* bottom: 0px; */
+        position: absolute;
+        border-radius: 25px;
+        /* margin-left: 0px; */
+        transition: margin-left .5s;
+    }
+
+    #submit {
+        position: absolute;
+        left: 30%;
+        transform: translate(-50%, -50%);
+    }
+
+    #mySidenav a {
+        position: absolute;
+        left: -95px;
+        transition: 0.3s;
+        padding: 15px;
+        width: 100px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        border-radius: 0 5px 5px 0;
+    }
+
+    #mySidenav a:hover {
+        left: 0;
+    }
+
+    #origin {
+        top: 20px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #facts {
+        top: 80px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #projects {
+        top: 140px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+
+    #contact {
+        top: 200px;
+        background-color: rgba(44, 19, 5, 0.37);
+    }
+</style>
+<script src="coronajsquery.js"></script>
+<!-- <script>
+    async function getCovidApi() {
+        const country = document.forms["myForm"]["country"].value;
+        const data = await fetch('https://api.covid19api.com/summary');
+        // console.log(data);
+        const jsData = await data.json();
+        console.log(jsData.Countries);
+        var choice = 0;
+        for (var i = 0; i < jsData.Countries.length; i++) {
+            if (jsData.Countries[i].Country.toLowerCase() == country.toLowerCase()) {
+                choice = 1;
+                document.getElementById("result").innerHTML = `The name of the country is `
+                    + `<strong>${jsData.Countries[i].Country}</strong>. The total confirmed cases `
+                    + `in the country are <strong>${jsData.Countries[i].TotalConfirmed}</strong> `
+                    + `and the total death cases are <strong>${jsData.Countries[i].TotalDeaths}</strong>.`
+                    + `<br>The last updated date was <strong>${jsData.Countries[i].Date.slice(0, 10)}</strong>`;
+            }
+        }
+        if (choice == 0) {
+            document.getElementById("result").innerHTML = "<strong>Please try some other country!!!!</strong>";
+        }
+    }
+    function aboutPage() {
+        document.getElementById("whole").innerHTML = `This page shows the current corona status of countries `
+            + `that faced the horrible deaths and active cases due to Covid-19.`;
+    }
+    function theOrigin() {
+        document.getElementById("whole").innerHTML = `The COVID‑19 pandemic, also known as the coronavirus pandemic, `
+            + `is an ongoing global pandemic of coronavirus disease 2019 (COVID‑19), caused by Severe Acute Respiratory `
+            + `Syndrome coronavirus 2 (SARS‑CoV‑2). The outbreak was first identified in Wuhan, China, in December 2019. `
+            + `The World Health Organization declared the outbreak a Public Health Emergency of International Concern on `
+            + `30 January 2020 and a pandemic on 11 March. As of 16 July 2020, more than 13.6 million cases of COVID‑19 `
+            + `have been reported in more than 188 countries and territories, resulting in more than 586,000 deaths; more `
+            + `than 7.62 million people have recovered.`;
+    }
+
+    function theFacts() {
+        document.getElementById("whole").style.marginLeft = "70px";
+        document.getElementById("whole").innerHTML = `<ul>
+        <li>1.The term "new coronavirus" (novel or nCoV) means that before `
+            + `neither scientists nor the cells met this virus before.</li><li>2.abcdefgh</li></ul>`;
+    }
+    function openNav() {
+        document.getElementById("headers").style.marginLeft = "70px";
+        document.getElementById("headers").style.transition = "margin-left .3s";
+    }
+    function closeNav() {
+        document.getElementById("headers").style.marginLeft = "0px";
+        document.getElementById("headers").style.transition = "margin-left .3s";
+    }
+    function openNavForSearch() {
+        document.getElementById("search").style.marginLeft = "70px";
+        document.getElementById("search").style.transition = "margin-left .3s";
+    }
+    function closeNavForSearch() {
+        document.getElementById("search").style.marginLeft = "0px";
+        document.getElementById("search").style.transition = "margin-left .3s";
+    }
+</script> -->
+
+<body>
+    <div>
+        <div class="topnav">
+            <a href="#home" onclick="document.location.reload(true)">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#about" onclick="aboutPage()">About</a>
+            <!-- <button class="btn"><i class="fa fa-bars"></i></button> -->
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="#" id="origin" onclick="theOrigin()">Origin</a>
+            <a href="#" id="facts" onclick="theFacts()">Facts</a>
+            <a href="#" id="projects" onmouseover="openNav()" onmouseout="closeNav()">Project</a>
+            <a href="#" id="contact" onmouseover="openNavForSearch()" onmouseout="closeNavForSearch()">Contact</a>
+        </div>
+        <div class="contentPage" id="myContentPage">
+            <h1 style="text-align: center;">Welcome to our page</h1>
+            <div class="container" id="whole" style="font-size: 20px;">
+                <div id="headers" class="description">
+                    <!-- <h1 style="text-align: center;">Welcome to our page</h1> -->
+                    <p style="font-size: 18px;">In this page, you can view the number of
+                        active corona cases and death cases in a list of countries you need to know about!!!</p>
+                </div>
+                <form name="myForm">
+                    <div class="search-box" id="search">
+                        <label><strong> Country name </strong></label>
+                        <input type="text" id="country" placeholder="Enter the Country name"
+                            style="width:200px;height:30px;" />
+                    </div>
+                    <br><br>
+                    <input id="submit" type="submit" style="width:75px;height:30px;" value="Submit"
+                        onclick="getCovidApi()">
+                    <br><br><br><br><br>
+                </form>
+                <div id="result" style="font-size: 18px;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="end" style="bottom:0">
+        <h3>This is the end of the page</h3>
+    </div>
+
+</body>
+
+</html>
+
+<!--
+    C:\Users\Sundararaman\Downloads\HTMLProject\celeb.html
+    header {
+        padding: 5px;
+        background-color: black;
+        text-align: center;
+        font-size: 20px;
+        color: gainsboro;
+        font-family: sans-serif;
+    }
+    section {
+        padding: 5px;
+        text-align: center;
+        font-size: 20px;
+        color: gainsboro;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        content: "";
+    }
+    footer {
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+     <header>
+        <h2>Welcome to our page</h2>
+    </header> 
+    <section>
+        <p  style="color: floralwhite;">
+            //In this page, you can view a short description about Celebrities you need to know about!!!
+        </p>
+    </section>
+    <footer>
+        <p>
+
+            <a href="http://www.instagram.com" target="_blank">
+                <img class="icon" src="E:\Sundar\notes\HTML\camera.jpg" width="40" height="40" alt="Instagram page"/>
+            </a> 
+        </p>
+    </footer>
+ <div class="top navbar" id="topnav" style="display: none; position: absolute; z-index: 3; right: 111px; height: 44px; background-color: rgb(95, 95, 95); text-align: center; padding-top: 0px;"> 
+       
+     </div>  
+-->
