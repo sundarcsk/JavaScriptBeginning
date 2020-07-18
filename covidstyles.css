@@ -14,9 +14,10 @@ body {
 
 .full {
     /* margin: 500; */
-    /* background-image: url("https://visme.co/blog/wp-content/uploads/2020/03/Header-14.jpg"); */
-    background-image: url(E://Sundar//notes//HTML//Corona.jpg);
+    background-image: url("https://visme.co/blog/wp-content/uploads/2020/03/Header-14.jpg");
+    /* background-image: url(E://Sundar//notes//HTML//Corona.jpg); */
     background-repeat: no-repeat;
+    background-position: center;
     /* margin-left: 80px; */
     height: 550px;
     /* width: 1400px; */
@@ -93,12 +94,12 @@ body {
     left: 0;
 }
 
-#about {
+#origin {
     top: 20px;
     background-color: rgba(44, 19, 5, 0.37);
 }
 
-#blog {
+#facts {
     top: 80px;
     background-color: rgba(44, 19, 5, 0.37);
 }
@@ -108,18 +109,19 @@ body {
     background-color: rgba(44, 19, 5, 0.37);
 }
 
-#contact {
+#profile {
     top: 200px;
     background-color: rgba(44, 19, 5, 0.37);
 }
 
 #end {
     position: absolute;
+    font-family:monospace;
 }
 .fa {
-    padding: 10px;
+    padding: 7px;
     font-size: 15px;
-    width: 12px;
+    width: 15px;
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
@@ -136,10 +138,5 @@ body {
 
 .fa-linkedin {
     background: #007bb5;
-    color: white;
-}
-
-.fa-skype {
-    background: #00aff0;
     color: white;
 }

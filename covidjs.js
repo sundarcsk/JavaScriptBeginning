@@ -3,7 +3,7 @@ async function getCovidApi() {
     const data = await fetch('https://api.covid19api.com/summary');
     // console.log(data);
     const jsData = await data.json();
-    console.log(jsData.Countries);
+    // console.log(jsData.Countries);
     var choice = 0;
     for (var i = 0; i < jsData.Countries.length; i++) {
         if (jsData.Countries[i].Country.toLowerCase() == country.toLowerCase()) {
@@ -35,9 +35,16 @@ function theOrigin() {
 
 function theFacts() {
     document.getElementById("whole").style.marginLeft = "70px";
-    document.getElementById("whole").innerHTML = `<ul>
+    document.getElementById("whole").innerHTML = `<ul>FACTS
     <li>1.The term "new coronavirus" (novel or nCoV) means that before `
-        + `neither scientists nor the cells met this virus before.</li><li>2.abcdefgh</li></ul>`;
+        + `neither scientists nor the cells met this virus before.</li>`
+        +`<li>2.One in five people does not even have a cough. The disease`
+        +` proceeds without any symptoms at all</li><li>3.If the virus was `
+        +`already dangerous when it came into contact with humans, it means `
+        +`that it can still walk somewhere within the animals and sooner `
+        +`or later infect people again.</li><li>4.Antibiotics against `
+        +`coronavirus are useless.</li><li>5.Sneezing is NOT a symptom of `
+        +`coronavirus. Coughing - yes, sneezing - no.</li></ul>`;
 }
 function openNav() {
     document.getElementById("headers").style.marginLeft = "70px";
